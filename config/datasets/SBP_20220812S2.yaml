@@ -1,0 +1,28 @@
+data:
+    root_dir: /home/shq/project/SynergyNet/Dataset/NeuralData/processed_format
+    dataset: SBP
+    raw_root_dir: /home/shq/project/SynergyNet/Dataset/NeuralData
+    date: 2022-08-12
+    session: Session_2
+    dataset_type: data_session
+    split_name: K_fold_repeat
+    Kfold_random: False
+    D1TF: False
+    valid: True
+
+    one_array: False
+    array_idx: 0
+
+    SPIKE:
+        win_len: 400
+        step_len: 200
+        delay: 0
+        PCA: False
+
+    KIN:
+        kin_type : velocity_position
+        kin_space: rotation_angle
+
+    regression:
+        kin_space: rotation_angle
+        step_len: 5

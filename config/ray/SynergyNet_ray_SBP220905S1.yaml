@@ -1,0 +1,20 @@
+name: ray_search
+root_dir: ray_results_fixDic
+
+pbt_metric: best_loss
+best_model_metric: best_R2
+model_yaml: SynergyNet_oneFile
+default_config_dir: /home/shq/project/SynergyNet/config/train
+exp_config: /home/shq/project/SynergyNet/config/train/SynergyNet_oneFile_SBP220905S1.yaml
+tune_hp_json: /home/shq/project/SynergyNet/config/ray/SynergyNet.json
+eval_only: False # if train in the ray main
+overwrite: False # if overwrite all the results in the ray main
+single_machine: True
+
+gpus_per_worker:  0.05
+cpus_per_worker: 1.0
+workers:  -1 # -1 indicates -- use max possible workers on machine (assuming 0.5 GPUs per trial)
+samples: 80 # samples for random search
+
+seed: 666 # seed for config
+

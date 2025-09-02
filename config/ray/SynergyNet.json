@@ -1,0 +1,51 @@
+{
+    "optim.lr": {
+      "low": 1e-3,
+      "high": 1e-2,
+      "explore_wt": 0.3
+  },
+
+    "optim.warmup": {
+        "low": 50,
+        "high": 100,
+        "sample_fn": "randint",
+        "is_integer": true
+    },
+
+      "model.intermediate_dim": {
+          "low": 320,
+          "high": 512,
+           "q":  32,
+          "sample_fn": "qrandint"
+  },
+      "model.timeConvLen": {
+        "low": 3,
+        "high": 5,
+        "sample_fn": "odd_int"
+  },
+      "model.embedding_dim": {
+      "opts": [640, 768, 896],
+      "sample_fn": "choice"
+  },
+     "model.kin_intermediate_dim": {
+      "opts": [ 196, 256],
+      "sample_fn": "choice"
+  },
+        "model.alpha": {
+        "low": 0.85,
+        "high": 0.95,
+        "sample_fn": "uniform",
+        "explore_wt": 1
+    },
+          "model.beta_smooth": {
+        "low": 0.1,
+        "high": 500,
+        "sample_fn": "loguniform"
+    },
+        "model.beta_diversity": {
+        "low": 0.1,
+        "high": 1,
+        "sample_fn": "uniform"
+    }
+
+}

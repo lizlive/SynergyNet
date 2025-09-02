@@ -1,0 +1,70 @@
+# This is where Meta Lingua will store anything related to the experiment. 
+dump_dir: results/
+name: "train"
+
+profiling:
+  run: true
+logging:
+    freq: 1
+seed: 666
+num_gpus: 1
+torch_gpu_id: 0
+gpu_auto_assign: True
+TUNE_MODE: False
+config_id: 1
+data_index: 1
+
+optim:
+  batch_size: 32
+  lr: 1e-3
+  weight_decay: 0.0001
+  total_epoch: 5000
+  warmup: 50
+
+
+model:
+    name: SynergyNet
+    input_dim: 196
+    intermediate_dim: 96
+    timeConvLen: 5
+    embedding_dim:  64
+    output_dim: 15
+    n_step: 5
+    step_len: 200
+    kin_intermediate_dim: 25
+    kin_dictionary_num: 15
+    kin_dictionary_timeNum:  20
+    alpha: 0.5
+    beta_smooth: 10.0
+    beta_diversity: 1e-2
+
+data:
+    root_dir: /home/shq/project/SynergyNet/Dataset/NeuralData/processed_format
+    dataset: SBP
+    raw_root_dir: /home/shq/project/SynergyNet/Dataset/NeuralData
+    date: '2022-06-27'
+    session: Session_1
+    dataset_type: data_session
+    split_name: K_fold_repeat
+    Kfold_random: False
+    D1TF: False
+    valid: True
+
+    one_array: False
+    array_idx: 0
+
+    SPIKE:
+        win_len: 400
+        step_len: 200
+        delay: 0
+        PCA: False
+
+    KIN:
+        kin_type : velocity_position
+        kin_space: rotation_angle
+    regression:
+        kin_space: rotation_angle
+        step_len: 5
+
+
+
